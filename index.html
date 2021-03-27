@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <section 
+    class="full"
+    id="formAllPage">
+        <form 
+        onsubmit="return false;"
+        class="full__form">
+            <input 
+            type="text"
+            class="full__form-inputTitle"
+            placeholder="Введите заголовок"
+            id="title"
+            maxlength="30">
+
+            <textarea 
+            type="text"
+            class="full__form-inputDescription"
+            placeholder="Текст заметки"
+            id="description"></textarea>
+
+            <button 
+            class="full__form-create"
+            id="create">Создать</button>
+            <button class="full__form-close"
+            id="close">Закрыть</button>
+        </form>
+    </section>
+
+    <section 
+    class="full"
+    id="formToChange">
+        <form 
+        onsubmit="return false;"
+        class="full__form">
+            <input 
+            type="text"
+            class="full__form-inputTitle"
+            placeholder="Введите заголовок"
+            id="titleChange"
+            maxlength="30"
+            autofocus>
+
+            <textarea 
+            type="text"
+            class="full__form-inputDescription"
+            placeholder="Текст заметки"
+            id="descriptionChange"></textarea>
+
+            <button 
+            class="full__form-create"
+            id="change">Изменить</button>
+            <button class="full__form-close"
+            id="close">Закрыть</button>
+        </form>
+    </section>
+
+    <header class="header">
+        <form 
+        onsubmit="return false;"
+        class="header__form">
+            <input 
+            type="text"
+            placeholder="Поиск"
+            class="header__form-input"
+            autofocus
+            maxlength="30">
+            <button
+            class="header__form-button"
+            id="searchButton">Search</button>
+        </form>
+    </header>
+
+    <main class="main">
+        <ul
+        class="main__list">
+        </ul>
+
+        <button class="main__button">+</button>
+    </main>
+
+    <script
+    src="./hello.js"></script>
+</body>
+</html>
