@@ -33,7 +33,7 @@ li{
     height: 100%;
     width: 100%;
 
-    background-color: gray;
+    background-color: rgb(128, 128, 128);
 
     align-items: center;
     justify-content: center;
@@ -152,7 +152,7 @@ li{
 
     padding-left: 2.4rem;
 
-    background-color: rgb(168, 164, 164);
+    background-color: rgb(170, 165, 165);
 }
 
 .header__form-input,
@@ -182,9 +182,11 @@ li{
 
     width: 100vw;
 
-    background-color: khaki;
+    background-color: rgb(220, 215, 120);
 
     position: relative;
+
+    min-height: 25rem;
 }
 
 .main__button{
@@ -196,7 +198,7 @@ li{
     border-radius: 100px;
     padding: 15px 30px; 
 
-    background-color: teal;
+    background-color: rgb(60, 243, 243);
 
     font-size: 2rem;
     color: #000;

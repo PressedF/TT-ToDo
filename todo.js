@@ -34,25 +34,14 @@ fullFormClose.forEach(t => {
     })
 })
 
-
-
-
 function isEmpty(message){
-    return message.trim() == '';
+    return message.trim() === '';
 }
 
-function _borderTop(form, value){
-    return form.style.borderTop = value;
+function _borderTopBottom(form, value){
+    form.style.borderTop = value;
+    form.style.borderBottom = value;
 }
-
-function _borderBottom(form, value){
-    return form.style.borderBottom = value;
-}
-
-function _border(form, value){
-    return form.style.border = value;
-}
-
 
 let todos = [];
 
@@ -101,47 +90,49 @@ let todos = [];
             let item = window.localStorage.getItem('todo');
                 if(item){
                     todos = JSON.parse(item);
+
                     this.setLocaleStorage(todos);
                 }
         },
 
         deleteTodo: function(id){
-            let _confirm = confirm('Вы уверены?');
-            if(_confirm){
+            if(confirm('Вы уверены?')){
                 todos = todos.filter(t => {
                     return t.id != id;
                 })
 
-                console.log(todos);
                 this.setLocaleStorage(todos);
             }
         },
 
         filterTodo: function(){
-            let text = searchForm.value.toLowerCase();
             let array = [...todos];
-            if(text.trim() != ''){
-                array = array.filter((t, i) => t.title.toLowerCase() === text.toLowerCase() || t.description.toLowerCase() === text.toLowerCase());
+            const text = searchForm.value.toLowerCase();
+
+            if(!isEmpty(text)){
+                array = array.filter((t, i) => 
+                    t.title.toLowerCase() === text || 
+                    t.description.toLowerCase() === text);
             }
+
             this.renderTodo(array);
         },
 
         
         changeTodo: function(event){
-            let query = d.querySelectorAll('.' + event.className);
-
-            let title = titleChange;
-            let description = descriptionChange;
+            const query = d.querySelectorAll('.' + event.className);
 
             let target = event.closest('li').querySelectorAll('span');
+            
+            let title = titleChange;
+            let description = descriptionChange;
 
             title.value = target[0].innerText;
             description.value = target[1].innerText;
                     
             change.addEventListener('click', () => {
-                if(!isEmpty(descriptionForm.value) && !isEmpty(titleForm.value)){
-                    if(formToChange.click)
-                        formToChange.classList.remove('visible');
+                if(isEmpty(title.value) && isEmpty(description.value)){
+                    formToChange.classList.remove('visible');
 
                     return;
                 }
@@ -151,19 +142,16 @@ let todos = [];
 
                 for(let i = 0; i < query.length; i++){
                     target = event.closest('li').querySelectorAll('span');
-                    console.log(event.closest('li').getAttribute('key'))
                     if(todos[i].id == event.closest('li').getAttribute('key')){
                         todos[i].title = target[0].innerText;
                         todos[i].description = target[1].innerText;
-                        
                         
                         this.setLocaleStorage(todos);
                         break;
                     }
                 }
 
-                if(formToChange.click)
-                    formToChange.classList.remove('visible');
+                formToChange.classList.remove('visible');
             })
         },
     }
@@ -173,21 +161,18 @@ let todos = [];
 
 
         createForm.onclick = function(){
-            _borderTop(titleForm, '1px solid #000');
-            _borderBottom(titleForm, '1px solid #000');
-            _borderTop(descriptionForm, '1px solid #000');
-            _borderBottom(descriptionForm, '1px solid #000');
+            _borderTopBottom(titleForm, '1px solid #000');
+            _borderTopBottom(descriptionForm, '1px solid #000');
 
             if(isEmpty(descriptionForm.value) && isEmpty(titleForm.value)){
-                _borderTop(titleForm, '1px solid red');
-                _borderBottom(titleForm, '1px solid red');
-                _borderTop(descriptionForm, '1px solid red');
-                _borderBottom(descriptionForm, '1px solid red');
+                _borderTopBottom(titleForm, '1px solid rgb(255, 80, 80)');
+                _borderTopBottom(descriptionForm, '1px solid rgb(255, 80, 80)');
 
                 return;
             }
 
             todo.addTodo(titleForm.value, descriptionForm.value);
+
             todo.setLocaleStorage(todos);
         }
 
