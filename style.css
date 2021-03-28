@@ -291,6 +291,11 @@ li{
 .item--title{
     font-weight: bold;
     font-size: 1.2rem;
+
+    max-width: calc((5vw + 25%) / (1.2rem * 10px));
+    /* yep, it's just works */
+
+    word-break: break-all;
 }
 
 @media screen and (max-width: 675px){
