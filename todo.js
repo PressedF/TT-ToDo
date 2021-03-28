@@ -181,7 +181,8 @@ let todos = [];
                 todo.deleteTodo(event.target.parentNode.getAttribute('key'));
             } 
             
-            if(event.target.classList.contains('main__list-item')){
+            if(!event.target.classList.contains('main__list')
+            && !event.target.classList.contains('item--delete')){
                 formToChange.classList.toggle('visible');
 
                 todo.changeTodo(event.target);

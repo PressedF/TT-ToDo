@@ -2,16 +2,14 @@
 ::before,
 ::after{
     box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
 }
 
 :root{
     font-size: max(12px, min(16px, calc(100vw * 2 / 75)));
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-body{
-    margin: 0;
-    padding: 0;
 }
 
 li{
@@ -56,7 +54,8 @@ li{
 }
 
 .full__form-inputTitle{
-    font-size: 2rem;
+    font-size: 1.6rem;
+
     outline: none;
     border: none;
 
@@ -68,7 +67,8 @@ li{
 }
 
 .full__form-inputDescription{
-    font-style: 1rem;
+    font-size: 1rem;
+
     outline: none;
 
     margin-top: .8rem;
@@ -94,7 +94,9 @@ li{
     border: 2px solid #000;
     outline: none;
 
-    font-size: 1.2rem;
+    font-size: inherit;
+
+    padding: .1rem;
 
     cursor: pointer;
 
@@ -120,16 +122,10 @@ li{
 }
 
 .header{
-    display: flex;
-    flex-flow: column wrap;
+    display: grid;
 
-    align-items: center;
+    padding: 1.2rem .6rem;
     justify-content: center;
-
-    height: 70px;
-    min-width: 100vw;
-
-    padding: 3rem 0 2rem 0;
 }
 
 .header__form{
@@ -157,7 +153,7 @@ li{
 
 .header__form-input,
 .header__form-button{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 .header__form-button{
@@ -173,13 +169,10 @@ li{
 .header__form-button:hover,
 .header__form-button:active,
 .header__form-button:focus{
-    outline: border
+    outline: none;
 }
 
 .main{
-    padding: 1rem 0 2rem 0;
-    margin-top: 3rem;
-
     width: 100vw;
 
     background-color: rgb(220, 215, 120);
@@ -187,6 +180,8 @@ li{
     position: relative;
 
     min-height: 25rem;
+
+    padding: 2.4rem;
 }
 
 .main__button{
@@ -200,7 +195,7 @@ li{
 
     background-color: rgb(60, 243, 243);
 
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #000;
 
     cursor: pointer;
@@ -224,8 +219,8 @@ li{
 
 .main__list{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 1.6rem;
 }
 
 .main__list-item{
@@ -256,7 +251,9 @@ li{
 }
 
 .item--description{
-    max-width: 200px;
+    max-width: calc(10vw + 30% - 2px - 1rem);
+
+    overflow-wrap: break-word;
 }
 
 .item--delete{
@@ -293,5 +290,59 @@ li{
 
 .item--title{
     font-weight: bold;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
+}
+
+@media screen and (max-width: 675px){
+    .header__form-button{
+        padding: 0 .2rem;
+    }
+
+    .main__button{
+        padding: 10px 15px;
+        right: 0;
+        bottom: 0;
+    }
+
+    .full__form-inputDescription{
+        margin-bottom: .2rem;
+    }
+}
+
+@media screen and (max-width: 305px){
+    .main__list{
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .header__form-input{
+        width: 60vw;
+    }
+
+    .full__form-inputTitle{
+        font-size: 1.1rem;
+    }
+
+    .full{
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width: 251px){
+    .main__list{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .item--delete{
+        right: 2px;
+        bottom: 0;
+    }
+
+    .header__form-button{
+        width: 100%;
+        padding: .6rem;
+    }
+
+    .header__form-input{
+        width: 100%;
+    }
 }
