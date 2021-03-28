@@ -262,7 +262,7 @@ li{
 .item--delete{
     position: absolute;
 
-    background-image: url('./basket.png');
+    background-image: url('./img/basket.png');
 
     background-position: center;
     background-clip: border-box;
