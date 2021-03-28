@@ -21,11 +21,15 @@ const descriptionChange = d.getElementById('descriptionChange');
 const change = d.getElementById('change');
 
 queryButton.onclick = function(){
+    d.getElementsByTagName('body')[0].style.overflow = 'hidden';
+
     fullForm.classList.toggle('visible');
 }
 
 fullFormClose.forEach(t => {
     t.addEventListener('click', () => {
+        d.getElementsByTagName('body')[0].style.overflow = 'auto';
+
         if(fullForm.click)
             fullForm.classList.remove('visible');
 

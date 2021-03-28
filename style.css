@@ -269,7 +269,7 @@ li{
     background-repeat: no-repeat;
 
     right: 20px;
-    bottom: 40px;
+    bottom: 30px;
 
     border: 2px solid #000;
     padding: .6rem;
@@ -324,11 +324,8 @@ li{
     }
 
     .full__form-inputTitle{
-        font-size: 1.1rem;
-    }
-
-    .full{
-        padding: 2rem;
+        padding: 0;
+        font-size: inherit;
     }
 }
 
@@ -349,5 +346,15 @@ li{
 
     .header__form-input{
         width: 100%;
+    }
+
+    .full__form-create{
+        right: 0;
+        bottom: 0;
+    }
+
+    .full__form-close{
+        right: 60px;
+        bottom: 0;
     }
 }
