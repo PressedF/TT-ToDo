@@ -293,7 +293,7 @@ li{
     font-size: 1.2rem;
 
     max-width: calc((5vw + 25%) / (1.2rem * 10px));
-    /* yep, it's just works */
+    /* yep, it just works */
 
     word-break: break-all;
 }
