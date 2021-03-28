@@ -1,3 +1,5 @@
+'use strict'
+
 const d = document;
 const queryButton = d.querySelector('.main__button');
 const fullForm = d.getElementById('formAllPage');
