@@ -77,9 +77,9 @@ let todos = [];
                     li.setAttribute('key', t.id);
                     li.className = 'main__list-item';
                     li.innerHTML = `
-                        <span class="item--title">${t.title}</span>
-                        <span class="item--description">${t.description}</span>
-                        <span class="item--delete"></span>
+                        <h2 class="item--title">${t.title}</h2>
+                        <p class="item--description">${t.description}</p>
+                        <div class="item--delete"></div>
                     `;
                     todoItemList.insertAdjacentElement('beforeend', li);
                 }
