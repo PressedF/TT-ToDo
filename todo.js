@@ -147,7 +147,6 @@ let todos = [];
                 target[1].textContent = description.value;
 
                 for(let i = 0; i < query.length; i++){
-                    target = event.closest('li').querySelectorAll('li > *');
                     if(todos[i].id == event.closest('li').getAttribute('key')){
                         todos[i].title = target[0].textContent;
                         todos[i].description = target[1].textContent;
