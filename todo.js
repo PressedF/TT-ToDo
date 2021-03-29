@@ -128,13 +128,13 @@ let todos = [];
         changeTodo: function(event){
             const query = d.querySelectorAll('.' + event.className);
 
-            let target = event.closest('li').querySelectorAll('span');
+            let target = event.closest('li').querySelectorAll('li > *');
             
             let title = titleChange;
             let description = descriptionChange;
 
-            title.value = target[0].innerText;
-            description.value = target[1].innerText;
+            title.value = target[0].textContent;
+            description.value = target[1].textContent;
                     
             change.addEventListener('click', () => {
                 if(isEmpty(title.value) && isEmpty(description.value)){
@@ -143,14 +143,14 @@ let todos = [];
                     return;
                 }
 
-                target[0].innerText = title.value;
-                target[1].innerText = description.value;
+                target[0].textContent = title.value;
+                target[1].textContent = description.value;
 
                 for(let i = 0; i < query.length; i++){
-                    target = event.closest('li').querySelectorAll('span');
+                    target = event.closest('li').querySelectorAll('li > *');
                     if(todos[i].id == event.closest('li').getAttribute('key')){
-                        todos[i].title = target[0].innerText;
-                        todos[i].description = target[1].innerText;
+                        todos[i].title = target[0].textContent;
+                        todos[i].description = target[1].textContent;
                         
                         this.setLocaleStorage(todos);
                         break;
